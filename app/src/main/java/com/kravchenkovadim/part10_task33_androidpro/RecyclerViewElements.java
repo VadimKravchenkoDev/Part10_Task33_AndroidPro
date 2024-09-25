@@ -4,9 +4,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewElements  {
 
-    int imageResource;
-    String namePizza;
-    String describePizza;
+    private int imageResource;
+    private String namePizza;
+    private String describePizza;
 
     public RecyclerViewElements(int imageResource, String namePizza, String describePizza) {
         this.imageResource = imageResource;
