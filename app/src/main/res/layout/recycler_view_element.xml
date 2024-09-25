@@ -14,7 +14,8 @@
         <ImageView
             android:id="@+id/imagePizza"
             android:layout_width="100dp"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:layout_margin="4dp">
 
         </ImageView>
 
@@ -22,7 +23,8 @@
             android:id="@+id/textViewPizzaName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/imagePizza">
+            android:layout_toEndOf="@+id/imagePizza"
+            android:layout_margin="4dp">
         </TextView>
 
         <TextView
@@ -30,9 +32,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewPizzaName"
-            android:layout_toEndOf="@+id/imagePizza">
+            android:layout_toEndOf="@+id/imagePizza"
+            android:layout_margin="4dp">
         </TextView>
-        
+
     </RelativeLayout>
 
 
