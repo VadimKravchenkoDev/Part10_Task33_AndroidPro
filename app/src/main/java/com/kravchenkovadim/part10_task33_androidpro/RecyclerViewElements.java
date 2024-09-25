@@ -1,6 +1,5 @@
 package com.kravchenkovadim.part10_task33_androidpro;
 
-import androidx.recyclerview.widget.RecyclerView;
 
 public class RecyclerViewElements  {
 

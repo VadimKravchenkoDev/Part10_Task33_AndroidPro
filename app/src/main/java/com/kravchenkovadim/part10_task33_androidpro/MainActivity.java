@@ -7,10 +7,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +30,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ArrayList<RecyclerViewElements> recyclerViewElements = new ArrayList<>();
-        recyclerViewElements.add(new RecyclerViewElements(R.drawable.margherita,""+ R.string.pizza_Margherita, ""+R.string.describe_Margherita_pizza));
-        recyclerViewElements.add(new RecyclerViewElements(R.drawable.margherita_another,""+ R.string.pizza_Margherita, ""+R.string.describe_another_Margherita_pizza));
-        recyclerViewElements.add(new RecyclerViewElements(R.drawable.cheese,""+ R.string.cheese_pizza, ""+R.string.describe_cheese_pizza));
-        recyclerViewElements.add(new RecyclerViewElements(R.drawable.dough,""+ R.string.pizza_dough, ""+R.string.describe_dough_pizza));
-        recyclerViewElements.add(new RecyclerViewElements(R.drawable.sourdough,""+ R.string.sourdough_pizza, ""+R.string.describe_sourdough_pizza));
+        recyclerViewElements.add(new RecyclerViewElements(R.drawable.margherita, getString(R.string.pizza_Margherita), getString(R.string.describe_Margherita_pizza)));
+        recyclerViewElements.add(new RecyclerViewElements(R.drawable.margherita_another, getString(R.string.pizza_another_Margherita), getString(R.string.describe_another_Margherita_pizza)));
+        recyclerViewElements.add(new RecyclerViewElements(R.drawable.cheese, getString(R.string.cheese_pizza), getString(R.string.describe_cheese_pizza)));
+        recyclerViewElements.add(new RecyclerViewElements(R.drawable.dough, getString(R.string.pizza_dough), getString(R.string.describe_dough_pizza)));
+        recyclerViewElements.add(new RecyclerViewElements(R.drawable.sourdough, getString(R.string.sourdough_pizza), getString(R.string.describe_sourdough_pizza)));
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new RecyclerViewAdapter(recyclerViewElements);
+        recyclerView.setAdapter(adapter);
     }
 }
