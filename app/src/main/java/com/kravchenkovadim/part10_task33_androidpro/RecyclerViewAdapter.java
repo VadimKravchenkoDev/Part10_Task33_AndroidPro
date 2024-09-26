@@ -1,5 +1,6 @@
 package com.kravchenkovadim.part10_task33_androidpro;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.imageView.setImageResource(recyclerViewElements.getImageResource());
         holder.pizzaName.setText(recyclerViewElements.getNamePizza());
         holder.pizzaDescribe.setText(recyclerViewElements.getDescribePizza());
+        holder.itemView.setOnClickListener(v -> {
+            // Создаем интент для открытия нового активити
+            Intent intent = new Intent(v.getContext(), DetailActivity.class);
+            // Передаем данные (текст) в новое активити
+            intent.putExtra("pizzaName", recyclerViewElements.getNamePizza());
+            intent.putExtra("pizzaDescribe", recyclerViewElements.getDescribePizza());
+            v.getContext().startActivity(intent);
+        });
     }
 
 
