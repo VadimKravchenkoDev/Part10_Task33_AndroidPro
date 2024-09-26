@@ -21,12 +21,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public ImageView imageView;
         public TextView pizzaName;
         public TextView pizzaDescribe;
+        public TextView methodPizza;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imagePizza);
             pizzaName = itemView.findViewById(R.id.textViewPizzaName);
             pizzaDescribe = itemView.findViewById(R.id.textViewPizzaDescribe);
+            methodPizza = itemView.findViewById(R.id.textViewMethod);
         }
     }
 
@@ -54,10 +56,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.pizzaDescribe.setText(recyclerViewElements.getDescribePizza());
         holder.itemView.setOnClickListener(v -> {
             // Создаем интент для открытия нового активити
-            Intent intent = new Intent(v.getContext(), DetailActivity.class);
+            Intent intent = new Intent(v.getContext(), DescribeActivity.class);
             // Передаем данные (текст) в новое активити
-            intent.putExtra("pizzaName", recyclerViewElements.getNamePizza());
-            intent.putExtra("pizzaDescribe", recyclerViewElements.getDescribePizza());
+            intent.putExtra("description", recyclerViewElements.methodPizza());
             v.getContext().startActivity(intent);
         });
     }
